@@ -1,127 +1,158 @@
-/***********************************************************************
- *  Import
- **********************************************************************/
+@import url('https://fonts.googleapis.com/css2?family=Quattrocento+Sans:wght@700&family=Work+Sans:wght@300;400&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600&display=swap');
-
-/***********************************************************************
- *  Merge Nav + Cover
- **********************************************************************/
-
-body {
-	margin: 0 auto;
+* {
+	font-family: 'Work Sans', sans-serif;
+	margin: 0;
 }
 
-.merge {
-	height: 100vh;
-	
- }
-
-/***********************************************************************
- *  Nav Bar
- **********************************************************************/
-
-.main-nav {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding-left: 20vh;
-    height: 10vh;
-    position: sticky;
+:root {
+  --background-color: #eff0f3;
+  --headline-color: #0d0d0d;
+  --paragraph-color: #2a2a2a;
+  --button-color: #ff8e3c;
+  --button-text-color: #0d0d0d;
+  --border-color: #0d0d0d;
+  --card-background-color: #fffffe;
+  --card-button-color: #ff8e3c;
+  --card-buttton-text: #fffffe;
+  --about-background-color: #fffffe;
+  --special-card-bg-color: #eff0f3;
+  --special-card-hd-color: #0d0d0d;
+  --special-card-pr-color: #2a2a2a;
 }
 
-li {
-    padding: 2em 2em 0em 0em;
+html {
+	transition: all 0.3s ease-in;
 }
 
-li>a {
-    text-decoration: none;
-    font-family: 'Source Sans Pro', sans-serif;
+html.dark {
+  --background-color: #232946;
+  --headline-color: #fffffe;
+  --paragraph-color: #b8c1ec;
+  --button-color: #eebbc3;
+  --button-text-color: #232946;
+  --border-color: #121629;
+  --card-background-color: #fffffe;
+  --card-button-color: #232946;
+  --card-buttton-text: #b8c1ec;
+  --about-background-color: #eebbc3;
+  --special-card-bg-color: #fffffe;
+  --special-card-hd-color: #232946;
+  --special-card-pr-color: #232946;
 }
 
-/***********************************************************************
- *  Cover
- **********************************************************************/
+/*NavBar Container*/
 
-.container {
-    height: 70vh; 
-    display: grid;
-    align-items: center;
-    padding-left: 20vh;
-    margin-right: 10vh;
-    background: url(eye.png) no-repeat center right ; 
-	background-size: 100vh;
+.navbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	transition: all 0.3s ease-in-out;
+	z-index: 100;
 }
 
-.blank {
-	height: 10vh;
-}
-.main-heading {
-	height: 20vh;
-	font-size: 12vh;
-	font-family: 'Ubuntu', sans-serif;
-	color: /*white*/;
+.navbar .container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 2% 7%;
+	transition: all 0.3s ease-in-out;
 }
 
-.sub-heading {
-	height: 20vh;
-	width: 60vh;
-	/*color: white;*/
-	font-family: 'Open Sans', sans-serif;
-	padding: 2.5vh 0;
-}
 
-.buttons {
-	height: 15vh;
-}
-
-button {
-	border: none;
-	border-radius: 3em;
-	margin: 2em 4em 0em 0em;
-	padding: 0.8em 2em;
-	font-family: 'Nunito Sans', sans-serif;
-	font-size: 1em;
+.navbar h3{
+	color: var(--paragraph-color);
 	cursor: pointer;
 }
 
-.filled {
-	background-color: #0077b6;
-	color: white;
+.navbar ul {
+	display: flex;
+	list-style-type: none;
+	align-items: center;
+	justify-content: center;
 }
 
-.hollow {
-	background: none;
-	border: 1px solid #0077b6;
+.navbar a {
+	color: var(--paragraph-color);
+	text-decoration: none;
+	padding: 7px 20px;
 }
 
-/***********************************************************************
- *  More Button
- **********************************************************************/
- .more {
- 	display: grid;
- 	grid-gap: 2em;
- 	height: 10vh;
-    text-decoration: none;
-    font-family: 'Source Sans Pro', sans-serif;
-    padding: 10vh 0 0 0;
-    align-items: end;
- }
 
-/***********************************************************************
- *  Resposive Media
- **********************************************************************/
-
-@media only screen and (max-width: 600px) {
-    .main-nav {
-        font-size: 0.7em;
-    }
-
-    .main-heading {
-	font-size: 2em;
-	}
-
+.navbar.active {
+	background-color: var(--background-color);
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+	transition: all 0.3s ease-in-out;
 }
+
+.navbar a.current, .navbar a:hover, .navbar .btn:hover {
+	color: --var(headline-color);
+	font-weight: bold;
+}
+
+.navbar .btn {
+	font-family: 'Work Sans', 'sans-serif';
+	background-color: transparent;
+	border: 0;
+	color: var(--paragraph-color);
+	padding: 7px 20px;
+	font-size: 1rem;
+	cursor: pointer;
+}
+
+button:focus {
+	outline: 0;
+}
+
+/*HERO Container*/
+
+.hero-container {
+	background-color: var(--background-color);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	height: 100vh;
+	width: 100%;
+	position: relative;
+	text-align: center;
+	transition: all 0.3s ease-in;
+	overflow: hidden;
+}
+
+.hero-container h1 {
+	color: var(--paragraph-color);
+	font-family: 'Quattrocento Sans', sans-serif;
+	font-size: 4rem;
+	margin: 1rem;
+	padding: 1rem;
+	letter-spacing: 0.2rem;
+}
+
+.hero-container h1 span{
+	color: var(--headline-color); 
+	font-family: 'Quattrocento Sans', sans-serif;
+	font-weight: bold;
+	font-size: 5rem;
+	letter-spacing: 0.3rem;
+}
+
+.hero-container p {
+	color: var(--paragraph-color);
+	font-family: 'Work Sans','sans-serif';
+	width: 30%;
+	margin: 1rem;
+	padding: 1rem;
+	letter-spacing: 0.5px;
+	line-height: 150%;
+}
+
+
+/* About Section */
+
+.about {
+	height: 89vh;
+}
+
